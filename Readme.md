@@ -22,10 +22,7 @@ Trained models go to models/, log file goes to logs/.
 - Blending (simple average) of 5 different models with different preprocessing.
 - Mel-spectrogram and constant-Q transform with different parameters for preprocessing.
 - Small and simple 2D and 1D CNN models - several convolutional blocks, global max pooling and dense layer in the end, batch normalization.
-- There was 100 mb restriction for size of solution, so using custom lightweight models helps to blend more models (and allows to make cross-validation and blend trained models from several folds).
+- There was 100 mb solution size limit, so using custom lightweight models helps to blend more models (and allows to make cross-validation and blend trained models from several folds).
 - Prepare all spectrograms in advance (not on-the-fly), then train models, this is especially useful for constant-Q transform, which is quite slow.
-
-
-
 
 All parameters of trained models and data preprocessing are in `src/config.yaml`.
