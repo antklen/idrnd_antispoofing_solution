@@ -1,0 +1,183 @@
+976d:
+  generator:
+    max_len: 70000
+    trim: 50
+    expand_dims: True
+    repeat_short: True
+  preprocess_fn: constant_q_transform
+  preprocess:
+    n_bins: 84
+    hop_length: 256
+    sample_rate: 16000
+  cv:
+    n_folds: 5
+    only_first_fold: False
+    random_state: 42
+  train:
+    num_epochs: 50
+    batch_size: 64
+    patience: 10
+    verbose: 1
+    reduce_lr_params:
+      factor: 0.5
+      patience: 3
+      min_lr: 0.00001
+      verbose: 1
+  model_name: CNN2D
+  model_params:
+    num_conv: 2
+    num_filters: [32, 32, 32]
+    kernel_size: [ !!python/tuple [3, 3], !!python/tuple [3, 3], !!python/tuple [3, 3]]
+    strides: [1, 1, 1]
+    pool_size: !!python/tuple [3, 2]
+    dense_units: [32]
+    optimizer_params:
+      lr: 0.001
+
+
+a7aa:
+  generator:
+    max_len: 100000
+    trim: 50
+    expand_dims: True
+    repeat_short: True
+  preprocess_fn: constant_q_transform
+  preprocess:
+    n_bins: 84
+    hop_length: 512
+    sample_rate: 16000
+  cv:
+    n_folds: 5
+    only_first_fold: False
+    random_state: 42
+  train:
+    num_epochs: 50
+    batch_size: 64
+    patience: 10
+    verbose: 1
+    reduce_lr_params:
+      factor: 0.5
+      patience: 3
+      min_lr: 0.00001
+      verbose: 1
+  model_name: CNN2D
+  model_params:
+    num_conv: 2
+    num_filters: [32, 32, 32]
+    kernel_size: [ !!python/tuple [3, 3], !!python/tuple [3, 3], !!python/tuple [3, 3]]
+    strides: [1, 1, 1]
+    pool_size: !!python/tuple [3, 2]
+    dense_units: [32]
+    optimizer_params:
+      lr: 0.001
+
+
+b89c:
+  generator:
+    max_len: 70000
+    trim: 50
+    expand_dims: False
+    repeat_short: True
+  preprocess_fn: mel_spectrogram
+  preprocess:
+    n_mels: 64
+    n_fft: 256
+    hop_length: 64
+    sample_rate: 16000
+  cv:
+    n_folds: 5
+    only_first_fold: False
+    random_state: 42
+  train:
+    num_epochs: 50
+    batch_size: 64
+    patience: 10
+    verbose: 1
+    reduce_lr_params:
+      factor: 0.5
+      patience: 3
+      min_lr: 0.00001
+      verbose: 1
+    class_weights: {0: 1, 1: 5}
+  model_name: CNN1D
+  model_params:
+    num_conv: 1
+    num_filters: [64, 64, 64, 64]
+    kernel_size: [5, 5, 5, 5]
+    strides: [1, 1, 1, 1]
+    pool_size: 3
+    dense_units: [64]
+    optimizer_params:
+      lr: 0.001
+
+
+c592:
+  generator:
+    max_len: 70000
+    expand_dims: True
+    repeat_short: False
+  preprocess_fn: mel_spectrogram
+  preprocess:
+    n_mels: 128
+  cv:
+    n_folds: 5
+    only_first_fold: False
+    random_state: 42
+  train:
+    num_epochs: 50
+    batch_size: 64
+    patience: 10
+    verbose: 1
+    reduce_lr_params:
+      factor: 0.5
+      patience: 3
+      min_lr: 0.00001
+      verbose: 1
+  model_name: CNN2D
+  model_params:
+    num_conv: 2
+    num_filters: [32, 32, 32]
+    kernel_size: [ !!python/tuple [3, 5], !!python/tuple [3, 5], !!python/tuple [3, 5]]
+    strides: [1, 1, 1]
+    pool_size: !!python/tuple [3, 3]
+    dense_units: [32]
+    optimizer_params:
+      lr: 0.001
+
+
+a866:
+  generator:
+    max_len: 90000
+    trim: 50
+    expand_dims: True
+    repeat_short: True
+  preprocess_fn: mel_spectrogram
+  preprocess:
+    n_mels: 128
+    n_fft: 1024
+    hop_length: 256
+    sample_rate: 16000
+  cv:
+    n_folds: 5
+    only_first_fold: False
+    random_state: 42
+  train:
+    num_epochs: 50
+    batch_size: 64
+    patience: 10
+    verbose: 1
+    reduce_lr_params:
+      factor: 0.5
+      patience: 3
+      min_lr: 0.00001
+      verbose: 1
+  model_name: CNN2D
+  model_params:
+    num_conv: 2
+    num_filters: [32, 32, 32]
+    kernel_size: [ !!python/tuple [3, 5], !!python/tuple [3, 5], !!python/tuple [3, 5]]
+    strides: [1, 1, 1]
+    pool_size: !!python/tuple [3, 3]
+    dense_units: [32]
+    optimizer_params:
+      lr: 0.001
